@@ -5,17 +5,19 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="assets/icons/css/all.css">
 	<title>ToDo list</title>
 </head>
 
 <body>
 	<div class="container">
-		<div id="date">
+		<div id="current-date">
 		</div>
 		<div class="list">
 			<div class="expire-date">
-				<button id="all-tasks">All tasks</button>
+				<h2>Todo List</h2>
+				<p id="all-tasks">All tasks</p>
 				<p id="today">Today</p>
 				<p id="overdue">Overdue</p>
 				<p id="completed">Completed</p>
@@ -25,7 +27,7 @@
 				<form action="#" name="createTask">
 					<input type="text" id="input" placeholder="Create new task">
 					<input type="date" id="date">
-					<label><input type="checkbox" id="important" value="important">important</label>
+					<label><input type="checkbox" id="important" value="important"> important</label>
 					<input type="submit" id="create" value="Create">
 				</form>
 				<div class="task-list"> </div>

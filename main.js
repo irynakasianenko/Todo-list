@@ -31,7 +31,6 @@ function addTask() {
 		let newTask = new toDoList(input.value, important.checked, date.value);
 		newTask.createIn(taskList);
 		tasks.push(newTask);
-
 		input.value = "";
 	} else {
 		alert("введіть ім'я завдання");
@@ -54,7 +53,6 @@ class toDoList {
 
 		let input = document.createElement("input");
 		input.addEventListener("click", this.changeState.bind(this));
-
 		input.type = "checkbox";
 
 		let p = document.createElement("p");
@@ -62,6 +60,7 @@ class toDoList {
 
 		let pDate = document.createElement("p");
 		pDate.innerText = this.date;
+		pDate.classList.add('date');
 
 		let deleteBtn = document.createElement('button');
 		deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';

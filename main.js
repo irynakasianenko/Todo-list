@@ -44,7 +44,6 @@ class toDoList {
 		this.date = date;
 		this.isDone = false;
 		this.div = null;
-
 	}
 
 	createIn(element) {
@@ -63,7 +62,7 @@ class toDoList {
 		pDate.classList.add('date');
 
 		let deleteBtn = document.createElement('button');
-		deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+		deleteBtn.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
 		deleteBtn.classList.add('delete-btn');
 		deleteBtn.addEventListener('click', this.remove.bind(this));
 

@@ -1,0 +1,152 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url(../assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: url(../assets/images/background.jpg) no-repeat center;
+}
+
+#current-date {
+	margin-bottom: 70px;
+	padding: 20px;
+	font-size: 36px;
+	font-weight: 700;
+	color: #185757;
+}
+
+.list {
+	display: flex;
+	border: 2px solid rgba(24,87,87, 0.7);
+	border-radius: 30px;
+	width: 75%;
+}
+
+.list .expire-date {	
+	padding: 25px 0;
+	background: rgba(94, 156, 152, 0.2);
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	font-size: 24px;
+	color: rgb(63, 108, 105);
+	font-weight: 500;
+}
+
+.list .expire-date h2 {
+	padding: 10px 20px;
+	color: #185757;
+	font-size: 36px;
+}
+
+.list .expire-date p {
+	padding: 10px 20px;
+}
+
+.list .expire-date p:hover {
+	background: rgb(255, 255, 255, 0.7);
+}
+
+.list .tasks {
+	width: 100%;
+	padding: 20px;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+   background: rgba(255, 255, 255, 0.5);
+}
+
+.list .tasks form {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+}
+
+.list .tasks form input, label {
+	border: none;
+	font-size: 18px;
+	padding: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.list .tasks form label {
+	background-color: rgb(255, 255, 255);
+	cursor: pointer;
+}
+
+.list .tasks form label input#important {
+	cursor: pointer;
+}
+
+.list .tasks form input#create {
+	background-color: #185757;
+	color: #fff;
+	border-radius: 10px;
+	padding: 10px 15px;
+}
+
+.list .tasks form input#create:hover {
+	background-color: rgba(24,87,87, 0.4);
+}
+
+.list .tasks .task-list div {
+	display: flex;
+	align-items: center;
+	background-color: rgb(255, 153, 153, 0.2);
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+.list .tasks .task-list div p {
+	margin-left: 10px;
+}
+
+.completed {
+	color: rgb(78, 77, 77);
+	text-decoration: line-through;
+}
+
+.important {
+	border-left: 5px solid rgb(201, 93, 93);
+	border-right: 5px solid rgb(201, 93, 93);
+}
+
+.delete-btn {
+	padding-left: 10px;
+	background-color: transparent;
+	border: none;
+	font-size: 18px;
+}
+
+.delete-btn:hover {
+	color: red;
+}
+
+@media (max-width: 700px) {
+	.list {
+		flex-direction: column-reverse;
+	}
+
+	.list .tasks {
+		border-top-left-radius: 30px;
+		border-bottom-right-radius: 0;
+	}
+
+	.list .expire-date {
+		border-top-left-radius: 0;
+		border-bottom-right-radius: 30px;
+		text-align: center;
+	}
+}

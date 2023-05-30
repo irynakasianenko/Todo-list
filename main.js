@@ -62,7 +62,7 @@ class toDoList {
 		pDate.classList.add('date');
 
 		let deleteBtn = document.createElement('button');
-		deleteBtn.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+		deleteBtn.innerHTML = '<i class="fa fa-trash-o"></i>';
 		deleteBtn.classList.add('delete-btn');
 		deleteBtn.addEventListener('click', this.remove.bind(this));
 

@@ -57,6 +57,10 @@
 	background: rgb(255, 255, 255, 0.7);
 }
 
+.focus {
+	background: rgb(255, 255, 255, 0.7);
+}
+
 .list .tasks {
 	width: 100%;
 	padding: 20px;
@@ -100,7 +104,7 @@
 	background-color: rgba(24,87,87, 0.4);
 }
 
-.list .tasks .task-list div {
+.list .tasks .task-list .task {
 	display: flex;
 	align-items: center;
 	background-color: rgb(255, 153, 153, 0.2);
@@ -128,10 +132,16 @@
 	background-color: transparent;
 	border: none;
 	font-size: 18px;
+	margin-left: auto;
 }
 
 .delete-btn:hover {
 	color: red;
+	
+}
+
+.date {
+	color: grey;
 }
 
 @media (max-width: 700px) {

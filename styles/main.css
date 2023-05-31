@@ -19,7 +19,7 @@
 }
 
 #current-date {
-	margin-bottom: 70px;
+	margin: 10px 0 30px 0;
 	padding: 20px;
 	font-size: 36px;
 	font-weight: 700;
@@ -79,9 +79,10 @@
 .list .tasks form input, label {
 	border: none;
 	font-size: 18px;
-	padding: 5px;
-	margin-right: 5px;
+	padding: 10px;
+	margin-right: 10px;
 	margin-top: 5px;
+	border-radius: 10px;
 }
 
 .list .tasks form label {
@@ -117,6 +118,11 @@
 	margin-left: 10px;
 }
 
+.list .tasks .task-list div p.date {
+	color: grey;
+	margin-left: auto;
+}
+
 .completed {
 	color: rgb(78, 77, 77);
 	text-decoration: line-through;
@@ -127,21 +133,67 @@
 	border-right: 5px solid rgb(201, 93, 93);
 }
 
-.delete-btn {
+.delete-btn, .edit-btn {
 	padding-left: 10px;
 	background-color: transparent;
 	border: none;
 	font-size: 18px;
+	
+}
+
+.edit-btn {
 	margin-left: auto;
 }
 
-.delete-btn:hover {
+.delete-btn:hover, .edit-btn:hover {
 	color: red;
 	
 }
 
-.date {
-	color: grey;
+/* .edit {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background: #703b3b;
+	width: 400px;
+	height: 400px;
+	padding: 25px;
+	transition: 0.5s all;
+	z-index: 1;
+	visibility: visible;
+	color: black;
+} */
+
+.edit {
+	position: absolute;
+	top: 30%;
+	left: 10%;
+	z-index: 1;
+	width: 80%;
+	height: 60%;
+	background-color: rgb(255, 153, 153, 0.2);
+	backdrop-filter: blur(2rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	border-radius: 30px;
+}
+
+.edit div {
+	padding: 20px;
+}
+
+.edit div button {
+	margin: 10px;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 30px;
+	background-color: #185757;
+	color: #fff;
 }
 
 @media (max-width: 700px) {

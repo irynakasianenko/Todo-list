@@ -66,10 +66,17 @@ class toDoList {
 		deleteBtn.classList.add('delete-btn');
 		deleteBtn.addEventListener('click', this.remove.bind(this));
 
+		let editBtn = document.createElement('button');
+		editBtn.innerHTML = '<i class="fa fa-pencil-square-o"</i>';
+		editBtn.classList.add('edit-btn');
+		editBtn.addEventListener('click', this.edit.bind(this));
+
 		this.div.append(input);
 		this.div.append(p);
 		this.div.append(pDate);
+		this.div.append(editBtn);
 		this.div.append(deleteBtn);
+
 
 		if (this.isDone) {
 			this.div.classList.add("completed");
@@ -89,7 +96,42 @@ class toDoList {
 	}
 
 	remove() {
+		tasks.splice(tasks.includes(tasks.indexOf(this)), 1);
 		this.div.remove();
+	}
+
+	edit() {
+		let div = document.createElement('div');
+		div.classList.add('edit');
+		let editForm = document.createElement('form');
+		let inputEdit = document.createElement('input');
+		inputEdit.type = 'text';
+		inputEdit.value = this.text;
+		let inputEditDate = document.createElement('input');
+		inputEditDate.type = 'date';
+		inputEditDate.value = this.date;
+
+		let divBtns = document.createElement('div');
+		let okBtn = document.createElement('button');
+		okBtn.textContent = 'Ok';
+		let cancelBtn = document.createElement('button');
+		cancelBtn.textContent = 'Cancel';
+
+		editForm.append(inputEdit);
+		editForm.append(inputEditDate);
+		div.append(editForm);
+		divBtns.append(okBtn);
+		divBtns.append(cancelBtn);
+		div.append(divBtns);
+		taskList.append(div);
+
+		okBtn.addEventListener('click', () => {
+			this.text = inputEdit.value;
+			this.date = inputEditDate.value
+			div.remove();
+		});
+
+		cancelBtn.addEventListener('click', () => div.remove())
 	}
 }
 
@@ -200,3 +242,10 @@ class Filter {
 	}
 }
 
+class Edit {
+	constructor(element) {
+		this.element = element;
+	}
+
+
+}

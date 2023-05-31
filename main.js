@@ -110,6 +110,15 @@ class toDoList {
 		let inputEditDate = document.createElement('input');
 		inputEditDate.type = 'date';
 		inputEditDate.value = this.date;
+		let label = document.createElement('label');
+		let inputCheck = document.createElement('input');
+		inputCheck.type = 'checkbox';
+		label.textContent = 'important';
+		if (this.isImportant) {
+			inputCheck.checked = true;
+		}
+		label.prepend(inputCheck);
+
 
 		let divBtns = document.createElement('div');
 		let okBtn = document.createElement('button');
@@ -119,6 +128,7 @@ class toDoList {
 
 		editForm.append(inputEdit);
 		editForm.append(inputEditDate);
+		editForm.append(label);
 		div.append(editForm);
 		divBtns.append(okBtn);
 		divBtns.append(cancelBtn);
@@ -131,7 +141,15 @@ class toDoList {
 			div.remove();
 		});
 
-		cancelBtn.addEventListener('click', () => div.remove())
+		cancelBtn.addEventListener('click', () => div.remove());
+
+		inputCheck.addEventListener('click', () => {
+			if (this.isImportant) {
+				this.isImportant = false;
+			} else {
+				this.isImportant = true;
+			}
+		});
 	}
 }
 

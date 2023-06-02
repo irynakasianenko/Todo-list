@@ -57,7 +57,7 @@
 	background: rgb(255, 255, 255, 0.7);
 }
 
-.focus {
+.list .expire-date .selected {
 	background: rgb(255, 255, 255, 0.7);
 }
 

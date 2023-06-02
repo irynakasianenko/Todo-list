@@ -21,6 +21,7 @@ input.addEventListener("keydown", function (e) {
 expireDate.addEventListener('click', function (e) {
 	let filter = new Filter(e.target, taskList);
 	filter.show();
+	filter.select();
 });
 
 let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -101,7 +102,7 @@ class toDoList {
 	}
 
 	delete() {
-		tasks.splice(tasks.includes(tasks.indexOf(this)), 1);
+		tasks.splice(tasks.indexOf(this), 1);
 		this.div.remove();
 	}
 
@@ -253,7 +254,11 @@ class Filter {
 	showToday() {
 		this.elementCreateIn.innerHTML = "";
 		tasks
-			.filter(task => task.compareDate() == 'today')
+			.filter(task => {
+				if (task.date) {
+					task.compareDate() == 'today'
+				}
+			})
 			.forEach(task => {
 				task.createIn(this.elementCreateIn);
 			});
@@ -262,46 +267,24 @@ class Filter {
 	showOverdue() {
 		this.elementCreateIn.innerHTML = "";
 		tasks
-			.filter(task => task.compareDate() == 'overdue')
+			.filter(task => {
+				if (task.date) {
+					task.compareDate() == 'overdue';
+				}
+			})
 			.forEach(task => {
 				task.createIn(this.elementCreateIn);
 			});
 	}
 
-	// compareDate(value) {
-	// 	let array = value.split('-');
-	// 	let year = array[0];
-	// 	let month = array[1];
-	// 	let day = array[2];
-	// 	let date = new Date();
-	// 	let currentYear = date.getFullYear();
-	// 	let currentMonth = () => {
-	// 		if (date.getMonth() < 10) {
-	// 			return '0' + String(date.getMonth() + 1)
-	// 		} else {
-	// 			return date.getMonth() + 1;
-	// 		}
-	// 	}
-	// 	let currentDay = () => {
-	// 		if (date.getDate() < 10) {
-	// 			return '0' + String(date.getDate() + 1)
-	// 		} else {
-	// 			return date.getDate();
-	// 		}
-	// 	}
+	select() {
+		this.deselectAll();
+		this.element.classList.add('selected');
+	}
 
-	// 	if (year == currentYear) {
-	// 		if (month == currentMonth()) {
-	// 			if (day == currentDay()) {
-	// 				return 'today';
-	// 			} else if (day < currentDay()) {
-	// 				return 'overdue';
-	// 			}
-	// 		} else if (month < currentMonth()) {
-	// 			return 'overdue';
-	// 		}
-	// 	} else if (year < currentYear()) {
-	// 		return 'overdue';
-	// 	}
-	// }
+	deselectAll() {
+		for (let element of expireDate.children) {
+			element.classList.remove('selected');
+		}
+	}
 }

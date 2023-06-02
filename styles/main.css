@@ -114,6 +114,16 @@
 	border-radius: 10px;
 }
 
+.list .tasks .task-list .overdue {
+	background-color: rgba(25, 24, 24, 0.2);
+}
+
+.list .tasks .task-list .completed {
+	color: rgb(78, 77, 77);
+	text-decoration: line-through;
+	background-color: rgba(85, 123, 99, 0.4);
+}
+
 .list .tasks .task-list div p {
 	margin-left: 10px;
 }
@@ -121,11 +131,6 @@
 .list .tasks .task-list div p.date {
 	color: grey;
 	margin-left: auto;
-}
-
-.completed {
-	color: rgb(78, 77, 77);
-	text-decoration: line-through;
 }
 
 .important {
@@ -150,22 +155,6 @@
 	
 }
 
-/* .edit {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(0);
-	background: #703b3b;
-	width: 400px;
-	height: 400px;
-	padding: 25px;
-	transition: 0.5s all;
-	z-index: 1;
-	visibility: visible;
-	color: black;
-} */
-
 .edit {
 	position: absolute;
 	top: 30%;
@@ -173,7 +162,7 @@
 	z-index: 1;
 	width: 80%;
 	height: 60%;
-	background-color: rgb(255, 153, 153, 0.2);
+	background-color: rgba(255, 153, 153, 0.2);
 	backdrop-filter: blur(2rem);
 	display: flex;
 	flex-direction: column;

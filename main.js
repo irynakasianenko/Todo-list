@@ -15,7 +15,10 @@ let tasks = [];
 create.addEventListener('click', addTask);
 
 input.addEventListener("keydown", function (e) {
-	if (e.code == "Enter") addTask();
+	if (e.code == "Enter") {
+		event.preventDefault();
+		addTask();
+	}
 });
 
 expireDate.addEventListener('click', function (e) {

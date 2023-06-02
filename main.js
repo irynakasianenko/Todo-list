@@ -64,7 +64,7 @@ class toDoList {
 		let deleteBtn = document.createElement('button');
 		deleteBtn.innerHTML = '<i class="fa fa-trash-o"></i>';
 		deleteBtn.classList.add('delete-btn');
-		deleteBtn.addEventListener('click', this.remove.bind(this));
+		deleteBtn.addEventListener('click', this.delete.bind(this));
 
 		let editBtn = document.createElement('button');
 		editBtn.innerHTML = '<i class="fa fa-pencil-square-o"</i>';
@@ -95,7 +95,7 @@ class toDoList {
 		this.div.classList.toggle("completed");
 	}
 
-	remove() {
+	delete() {
 		tasks.splice(tasks.includes(tasks.indexOf(this)), 1);
 		this.div.remove();
 	}
@@ -139,6 +139,10 @@ class toDoList {
 			this.text = inputEdit.value;
 			this.date = inputEditDate.value
 			div.remove();
+			taskList.innerHTML = '';
+			for (let task of tasks) {
+				task.createIn(taskList)
+			}
 		});
 
 		cancelBtn.addEventListener('click', () => div.remove());
@@ -258,12 +262,4 @@ class Filter {
 			return 'overdue';
 		}
 	}
-}
-
-class Edit {
-	constructor(element) {
-		this.element = element;
-	}
-
-
 }

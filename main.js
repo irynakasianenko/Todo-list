@@ -60,6 +60,11 @@ class toDoList {
 		let pDate = document.createElement("p");
 		pDate.innerText = this.date;
 		pDate.classList.add('date');
+		if (this.date) {
+			if (this.compareDate() == 'overdue') {
+				this.div.classList.add('overdue');
+			}
+		}
 
 		let deleteBtn = document.createElement('button');
 		deleteBtn.innerHTML = '<i class="fa fa-trash-o"></i>';
@@ -155,6 +160,43 @@ class toDoList {
 			}
 		});
 	}
+
+	compareDate() {
+		let array = this.date.split('-');
+		let year = array[0];
+		let month = array[1];
+		let day = array[2];
+		let date = new Date();
+		let currentYear = date.getFullYear();
+		let currentMonth = () => {
+			if (date.getMonth() < 10) {
+				return '0' + String(date.getMonth() + 1)
+			} else {
+				return date.getMonth() + 1;
+			}
+		}
+		let currentDay = () => {
+			if (date.getDate() < 10) {
+				return '0' + String(date.getDate() + 1)
+			} else {
+				return date.getDate();
+			}
+		}
+
+		if (year == currentYear) {
+			if (month == currentMonth()) {
+				if (day == currentDay()) {
+					return 'today';
+				} else if (day < currentDay()) {
+					return 'overdue';
+				}
+			} else if (month < currentMonth()) {
+				return 'overdue';
+			}
+		} else if (year < currentYear()) {
+			return 'overdue';
+		}
+	}
 }
 
 class Filter {
@@ -211,7 +253,7 @@ class Filter {
 	showToday() {
 		this.elementCreateIn.innerHTML = "";
 		tasks
-			.filter(task => this.compareDate(task.date) == 'today')
+			.filter(task => task.compareDate() == 'today')
 			.forEach(task => {
 				task.createIn(this.elementCreateIn);
 			});
@@ -220,46 +262,46 @@ class Filter {
 	showOverdue() {
 		this.elementCreateIn.innerHTML = "";
 		tasks
-			.filter(task => this.compareDate(task.date) == 'overdue')
+			.filter(task => task.compareDate() == 'overdue')
 			.forEach(task => {
 				task.createIn(this.elementCreateIn);
 			});
 	}
 
-	compareDate(value) {
-		let array = value.split('-');
-		let year = array[0];
-		let month = array[1];
-		let day = array[2];
-		let date = new Date();
-		let currentYear = date.getFullYear();
-		let currentMonth = () => {
-			if (date.getMonth() < 10) {
-				return '0' + String(date.getMonth() + 1)
-			} else {
-				return date.getMonth() + 1;
-			}
-		}
-		let currentDay = () => {
-			if (date.getDate() < 10) {
-				return '0' + String(date.getDate() + 1)
-			} else {
-				return date.getDate();
-			}
-		}
+	// compareDate(value) {
+	// 	let array = value.split('-');
+	// 	let year = array[0];
+	// 	let month = array[1];
+	// 	let day = array[2];
+	// 	let date = new Date();
+	// 	let currentYear = date.getFullYear();
+	// 	let currentMonth = () => {
+	// 		if (date.getMonth() < 10) {
+	// 			return '0' + String(date.getMonth() + 1)
+	// 		} else {
+	// 			return date.getMonth() + 1;
+	// 		}
+	// 	}
+	// 	let currentDay = () => {
+	// 		if (date.getDate() < 10) {
+	// 			return '0' + String(date.getDate() + 1)
+	// 		} else {
+	// 			return date.getDate();
+	// 		}
+	// 	}
 
-		if (year == currentYear) {
-			if (month == currentMonth()) {
-				if (day == currentDay()) {
-					return 'today';
-				} else if (day < currentDay()) {
-					return 'overdue';
-				}
-			} else if (month < currentMonth()) {
-				return 'overdue';
-			}
-		} else if (year < currentYear()) {
-			return 'overdue';
-		}
-	}
+	// 	if (year == currentYear) {
+	// 		if (month == currentMonth()) {
+	// 			if (day == currentDay()) {
+	// 				return 'today';
+	// 			} else if (day < currentDay()) {
+	// 				return 'overdue';
+	// 			}
+	// 		} else if (month < currentMonth()) {
+	// 			return 'overdue';
+	// 		}
+	// 	} else if (year < currentYear()) {
+	// 		return 'overdue';
+	// 	}
+	// }
 }

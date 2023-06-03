@@ -181,7 +181,7 @@ class toDoList {
 		}
 		let currentDay = () => {
 			if (date.getDate() < 10) {
-				return '0' + String(date.getDate() + 1)
+				return '0' + String(date.getDate())
 			} else {
 				return date.getDate();
 			}
@@ -259,7 +259,7 @@ class Filter {
 		tasks
 			.filter(task => {
 				if (task.date) {
-					task.compareDate() == 'today'
+					return task.compareDate() == 'today'
 				}
 			})
 			.forEach(task => {
@@ -272,7 +272,7 @@ class Filter {
 		tasks
 			.filter(task => {
 				if (task.date) {
-					task.compareDate() == 'overdue';
+					return task.compareDate() == 'overdue';
 				}
 			})
 			.forEach(task => {

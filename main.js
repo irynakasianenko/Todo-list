@@ -16,7 +16,7 @@ create.addEventListener('click', addTask);
 
 input.addEventListener("keydown", function (e) {
 	if (e.code == "Enter") {
-		event.preventDefault();
+		e.preventDefault();
 		addTask();
 	}
 });
@@ -37,7 +37,7 @@ function addTask() {
 		tasks.push(newTask);
 		input.value = "";
 	} else {
-		alert("введіть ім'я завдання");
+		alert("Enter new task");
 	}
 }
 
